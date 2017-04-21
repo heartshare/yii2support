@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public class ValidationCompletionContributor extends  com.intellij.codeInsight.completion.CompletionContributor {
     public ValidationCompletionContributor() {
-        extend(CompletionType.BASIC, ElementPattern(), new ValidationCompletionProvider());
+        extend(CompletionType.BASIC, PlatformPatterns.psiElement(), new ValidationCompletionProvider());
     }
 
     @Override

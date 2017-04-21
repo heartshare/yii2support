@@ -3,6 +3,7 @@ package com.nvlad.yii2support.common;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiWhiteSpace;
 import com.jetbrains.php.lang.psi.elements.ArrayCreationExpression;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Created by NVlad on 17.01.2017.
@@ -51,5 +52,16 @@ public class PsiUtil {
             }
         }
         element.delete();
+    }
+
+    @Nullable
+    public static PsiElement getSuperParent(PsiElement elem, int level) {
+        for (int i =0; i < level; i++) {
+            if (elem.getParent() == null)
+                return null;
+            else
+                elem = elem.getParent();
+        }
+        return elem;
     }
 }
