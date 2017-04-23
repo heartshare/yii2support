@@ -64,4 +64,12 @@ public class PsiUtil {
         }
         return elem;
     }
+
+    public static int getValueIndexInArray(PsiElement arrayValue, ArrayCreationExpression array) {
+        for (int i = 0; i < array.getChildren().length; i++) {
+            if (array.getChildren()[i] == arrayValue)
+                return i;
+        }
+        return -1;
+    }
 }
